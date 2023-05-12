@@ -1,12 +1,16 @@
-import { Fragment } from "react";
+import { Fragment, Suspense, lazy } from "react";
 import Header from './components/Header';
-import Body from './components/Body';
+import Loader from "./components/Loader";
+
+const LazyBody = lazy(() => import('./components/Body'));
 
 function App() {
   return (
     <Fragment>
       <Header />
-      <Body />
+      <Suspense fallback={<Loader />}>
+        <LazyBody />
+      </Suspense>
     </Fragment>
   );
 }

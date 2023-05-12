@@ -21,7 +21,6 @@ const Body = () => {
 
         fetchcountries();
         fetchRates();
-        console.log(rates);
     }, []);
   return (
     <div className='body'>
